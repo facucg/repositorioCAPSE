@@ -1,0 +1,37 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, PHP, Ruby, 
+C#, VB, Perl, Swift, Prolog, Javascript, Pascal, HTML, CSS, JS
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <stdio.h>
+
+float cubo(float nro);
+float cuadrado(float nro);
+
+int main()
+{
+    float i=0.0;
+    
+    printf("x \t x al cuadrado \t x al cubo\n");
+    while(i<=10.0){
+        printf("%.2f \t %.2f \t\t %.2f\n", i, cuadrado(i), cubo(i));
+        i= i + 0.5;
+    } 
+    
+    return 0;
+}
+
+float cuadrado(float nro){
+    nro = nro * nro;
+    
+    return nro; 
+}
+
+float cubo(float nro){
+    nro = cuadrado(nro) * nro;
+    
+    return nro;
+}
