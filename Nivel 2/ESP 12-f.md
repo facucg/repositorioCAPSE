@@ -26,14 +26,43 @@ El modulo tiene 2 modos de funcionamiento dependiendo de la conexion que se real
  - Flash Boot Mode (Funcionamiento normal)
 Para la descarga del Firmware:
 
+**Download Mode**
+
 | EDU-CIAA | ESP 12-F |
 |----------|----------|
-| 3.3V | VCC |
+| 3.3V | VCC |  
 | GND | GND |
-| 3.3V | GPIO2|
-| GND | GPIO0|
-| GND | GPIO15|
+| **3.3V** | **GPIO2**|
+| **GND** | **GPIO0**|
+| **GND** | **GPIO15**|
 | RX-232 | TX |
 |TX -232| RX|
 
+*Sin la conexion de GPIO2 funciona igual*
+
+**Flash Boot Mode**
+
+| EDU-CIAA | ESP 12-F |
+|----------|----------|
+| 3.3V | VCC |  
+| GND | GND |
+| **GND** | **GPIO2**|
+| **3.3V**| **GPIO0**|
+| **GND** | **GPIO15**|
+| RX-232 | TX |
+|TX -232| RX|
+
+
 **No alimentar el modulo con mas de 3.3V**
+
+## Descarga
+ - Conectar la EDU-CIAA y descargar cargarle el programa **uartBridge_ESP8266.c** de la carpeta *at_commands*
+ - Cerrar el terminal serie en caso que se encuentre abierto
+ - Abir el terminal de Linux y descargar el Firmware con
+ ```sh
+  esptool.py --port /dev/ttyUSBx write_flash --flash_mode dio --flash_size 4MB 0x0 ai-thinker-v1.1.1.bin
+ ```
+ ## Comunicacion con el ESP 12-f
+ - Abir el terminal serie y setear el Baud Rate en 115200 con CR/LF habilitado
+ - Enviar AT por el terminal o presionar la Tecla 2 de la EDU-CIAA
+ - El modulo deberia responder OK si todo esta en orden
