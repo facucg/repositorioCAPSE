@@ -63,6 +63,7 @@ Para la descarga del Firmware:
   esptool.py --port /dev/ttyUSBx write_flash --flash_mode dio --flash_size 4MB 0x0 ai-thinker-v1.1.1.bin
  ```
  ## Comunicacion con el ESP 12-f
- - Abir el terminal serie y setear el Baud Rate en 115200 con CR/LF habilitado
+ - Realizar la conexion del modulo para **Flash Boot Mode**
+ - Abir el terminal CUTECOM y setear el Baud Rate en 115200 con CR/LF habilitado y modo Write/Read
  - Enviar AT por el terminal o presionar la Tecla 2 de la EDU-CIAA
  - El modulo deberia responder OK si todo esta en orden
